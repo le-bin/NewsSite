@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "./Card";
 
 const Newsapp = () => {
@@ -20,11 +20,27 @@ const Newsapp = () => {
     setsearch(e.target.value);
   };
 
+  useEffect(() => {
+    getData();
+  }, [search]);
+
+  const userInput = (e) => {
+    setsearch(e.target.value);
+  };
+
   return (
     <div>
       <nav>
         <div>
-          <h1>Trending News</h1>
+          <h1
+            onClick={() => {
+              setsearch("nepal"); // reset to default
+              getData(); // fetch default news again
+            }}
+            style={{ cursor: "pointer" }} // makes it look clickable
+          >
+            Trending News
+          </h1>
         </div>
         <ul>
           <a>All News</a>
@@ -33,6 +49,7 @@ const Newsapp = () => {
         <div className="searchBar">
           <input
             type="text"
+            value={search}
             placeholder="Search Your News Topic Here"
             onChange={handleInput}
           />
@@ -45,11 +62,21 @@ const Newsapp = () => {
       </div>
 
       <div className="categoryBtn">
-        <button>Sports</button>
-        <button>Entertainment</button>
-        <button>Politics</button>
-        <button>Health</button>
-        <button>Fitness</button>
+        <button onClick={userInput} value={"sports"}>
+          Sports
+        </button>
+        <button onClick={userInput} value={"entertainment"}>
+          Entertainment
+        </button>
+        <button onClick={userInput} value={"politics"}>
+          Politics
+        </button>
+        <button onClick={userInput} value={"health"}>
+          Health
+        </button>
+        <button onClick={userInput} value={"fitness"}>
+          Fitness
+        </button>
       </div>
 
       <div>
