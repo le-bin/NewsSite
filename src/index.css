@@ -32,7 +32,7 @@ nav ul {
   margin: 0;
   padding: 8px 18px;
   color: white;
-  background: rgba(255, 255, 255, 0.1);  /* subtle transparent background */
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(6px);
   border-radius: 30px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
@@ -97,6 +97,7 @@ nav button:hover {
   justify-content: center;
   gap: 41px;
   flex-wrap: wrap;
+  padding: 20px;
 }
 
 /* ---------- CARD ---------- */
@@ -109,6 +110,9 @@ nav button:hover {
   border: 1px solid rgb(236, 236, 236);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card:hover {
@@ -124,6 +128,10 @@ nav button:hover {
 
 .card .content {
   padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .card .title {
@@ -139,7 +147,7 @@ nav button:hover {
 }
 
 .card button {
-  align-self: flex-end;             /* ✅ aligns button to the bottom right corner */
+  align-self: flex-end;
   background-color: #1ea6d6;
   border: none;
   cursor: pointer;
@@ -149,6 +157,7 @@ nav button:hover {
   border-radius: 4px;
   transition: background-color 0.3s ease;
 }
+
 .card button:hover {
   background-color: #1082ad;
 }
@@ -159,6 +168,7 @@ nav button:hover {
   justify-content: center;
   gap: 12px;
   margin-top: 20px;
+  flex-wrap: wrap;
 }
 
 .categoryBtn button {
@@ -183,4 +193,76 @@ nav button:hover {
   font-weight: 600;
   font-size: 26px;
   margin-top: 25px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+/* 📱 Mobile (max 600px) */
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 20px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  nav input {
+    width: 180px;
+    font-size: 14px;
+  }
+
+  nav button {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  .card img {
+    height: 160px;
+  }
+
+  .card .title {
+    font-size: 16px;
+  }
+
+  .head {
+    font-size: 22px;
+  }
+}
+
+/* 📱 Tablet (max 900px) */
+@media (max-width: 900px) {
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  nav ul {
+    margin-top: 10px;
+  }
+
+  nav input {
+    width: 220px;
+  }
+
+  .card {
+    width: 45%;
+  }
+
+  .card .title {
+    font-size: 17px;
+  }
+
+  .head {
+    font-size: 24px;
+  }
 }
