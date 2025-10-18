@@ -139,17 +139,16 @@ nav button:hover {
 }
 
 .card button {
+  align-self: flex-end;             /* ✅ aligns button to the bottom right corner */
   background-color: #1ea6d6;
   border: none;
   cursor: pointer;
-  width: 90px;
-  height: 30px;
+  padding: 8px 14px;
   color: white;
   font-size: 14px;
   border-radius: 4px;
   transition: background-color 0.3s ease;
 }
-
 .card button:hover {
   background-color: #1082ad;
 }
